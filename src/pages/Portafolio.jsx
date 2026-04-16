@@ -92,6 +92,13 @@ const Inicio = () => {
             setTimeout(() => setStatus(''), 3000);
         }, 2000);
     };
+    
+    const descargarCV = () => {
+        const link = document.createElement("a");
+        link.href = "./Hoja de Vida.pdf";
+        link.download = "CV.pdf";
+        link.click();
+    };
 
     return (
         <div className="min-h-screen bg-slate-900 text-slate-100 font-sans">
@@ -125,7 +132,7 @@ const Inicio = () => {
                         <span className="text-blue-400 font-semibold"> React</span>, conectando arquitecturas complejas con experiencias de usuario fluidas.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-all shadow-lg shadow-blue-500/20">
+                        <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-all shadow-lg shadow-blue-500/20" onClick={descargarCV}>
                             Descargar CV
                         </button>
                         <div className="flex items-center gap-4 ml-4">
