@@ -129,8 +129,8 @@ const Inicio = () => {
                             Descargar CV
                         </button>
                         <div className="flex items-center gap-4 ml-4">
-                            <a href="https://github.com/sebastianmontoya04"><FaGithub className="cursor-pointer hover:text-blue-400 transition" /></a>
-                            <a href="https://www.linkedin.com/in/sebastian-montoya-10604b3a7/"><FaLinkedin className="cursor-pointer hover:text-blue-400 transition" /></a>
+                            <a href="https://github.com/michael-myers-myke"><FaGithub className="cursor-pointer hover:text-blue-400 transition" /></a>
+                            <a href="https://www.linkedin.com/in/michael-zuluaga-a271b2363/"><FaLinkedin className="cursor-pointer hover:text-blue-400 transition" /></a>
                             
                         </div>
                     </div>
@@ -358,7 +358,7 @@ const Inicio = () => {
                             &lt;MichaelZuluaga /&gt;
                         </span>
                         <p className="text-slate-500 text-sm mt-2 font-mono">
-                            © {currentYear} — Diseñado por Sebastian Montoya.
+                            © {currentYear} — Diseñado por Michael Zuluaga.
                         </p>
                     </div>
 
@@ -374,14 +374,14 @@ const Inicio = () => {
                     {/* Redes Sociales Rápidas */}
                     <div className="flex gap-5">
                         <a
-                            href="https://github.com/sebastianmontoya04"
+                            href="https://github.com/michael-myers-myke"
                             className="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all"
                             aria-label="GitHub"
                         >
                             <FaGithub size={20} />
                         </a>
                         <a
-                            href="https://www.linkedin.com/in/sebastian-montoya-10604b3a7/"
+                            href="https://www.linkedin.com/in/michael-zuluaga-a271b2363/"
                             className="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-blue-400 hover:bg-slate-700 transition-all"
                             aria-label="LinkedIn"
                         >
