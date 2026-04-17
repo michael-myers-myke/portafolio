@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { FiExternalLink } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 
 const Inicio = () => {
     const [status, setStatus] = useState('');
@@ -81,18 +82,29 @@ const Inicio = () => {
 
 
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus('sending');
 
-        // Simulación de envío (Aquí conectarías con EmailJS o Formspree)
-        setTimeout(() => {
-            setStatus('success');
-            setTimeout(() => setStatus(''), 3000);
-        }, 2000);
+        const form = e.target;
+
+        emailjs.sendForm(
+            'service_h7im4ex',     
+            'template_ahrldbg', 
+            form,
+            'nUb2ZYdvyxi6eIKB2'      
+        )
+            .then(() => {
+                setStatus('success');
+                form.reset(); 
+                setTimeout(() => setStatus(''), 3000);
+            })
+            .catch(() => {
+                setStatus('');
+                alert('Error al enviar el mensaje');
+            });
     };
-    
+
     const descargarCV = () => {
         const link = document.createElement("a");
         link.href = "./Hoja de Vida.pdf";
@@ -138,7 +150,7 @@ const Inicio = () => {
                         <div className="flex items-center gap-4 ml-4">
                             <a href="https://github.com/michael-myers-myke"><FaGithub className="cursor-pointer hover:text-blue-400 transition" /></a>
                             <a href="https://www.linkedin.com/in/michael-zuluaga-a271b2363/"><FaLinkedin className="cursor-pointer hover:text-blue-400 transition" /></a>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -237,7 +249,7 @@ const Inicio = () => {
                     </div>
                 </div>
             </section>
-            
+
             {/* Tech Stack - Bento Style */}
             <section id="tecnologias" className="py-24 bg-slate-900">
                 <div className="max-w-6xl mx-auto px-6">
@@ -308,6 +320,7 @@ const Inicio = () => {
                                         <label className="text-sm font-mono text-slate-400 ml-1">Nombre</label>
                                         <input
                                             type="text"
+                                            name="user_name"
                                             required
                                             className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-slate-200"
                                             placeholder="Ingresa tu nombre"
@@ -317,6 +330,7 @@ const Inicio = () => {
                                         <label className="text-sm font-mono text-slate-400 ml-1">Email</label>
                                         <input
                                             type="email"
+                                            name="user_email"
                                             required
                                             className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-slate-200"
                                             placeholder="Ingresa tu email "
@@ -328,6 +342,7 @@ const Inicio = () => {
                                     <label className="text-sm font-mono text-slate-400 ml-1">Mensaje</label>
                                     <textarea
                                         rows="4"
+                                        name="message"
                                         required
                                         className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-slate-200 resize-none"
                                         placeholder="Cuéntame sobre tu idea..."
